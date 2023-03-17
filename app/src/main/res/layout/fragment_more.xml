@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#eeeeee"
+    android:orientation="vertical"
+    tools:context=".Fragment.MoreFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="More"
+        app:titleTextColor="@color/white"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/browse_series"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Browse Series"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_browse_series"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D3CECE" />
+
+        <TextView
+            android:id="@+id/browse_team"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Browse Team"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_browse_team"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D3CECE" />
+
+        <TextView
+            android:id="@+id/browse_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Browse Player"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_browse_player"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Schedule"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_schedule"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D3CECE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Archives"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_archives"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Games"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_game"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Photos"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_photos"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quotes"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_quotes"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ICC Rankings - Men"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_ranking"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D3CECE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ICC Rankings - Women"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_ranking"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D3CECE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Records"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_record"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ICC World Test Championship"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_icc_world"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D3CECE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ICC World Cup Super League"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_icc_world"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rate the App"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_rate"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D3CECE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Feedback"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_feedback"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_setting"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#D3CECE" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About Cricbuzz"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:drawableLeft="@drawable/ic_about"
+            android:drawablePadding="10dp"
+            android:padding="15dp" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
