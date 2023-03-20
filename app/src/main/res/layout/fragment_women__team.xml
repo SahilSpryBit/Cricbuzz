@@ -5,12 +5,12 @@
     android:orientation="vertical"
     android:background="#eeee"
     android:layout_height="match_parent"
-    tools:context=".Fragment.BrowseSeries.T20_SeriesFragment">
+    tools:context=".Fragment.BrowseTeams.Women_TeamFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/browse_layout" />
+        tools:listitem="@layout/browse_team_layout" />
 
 </LinearLayout>

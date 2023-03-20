@@ -1,4 +1,4 @@
-package com.example.cricbuzz;
+package com.example.cricbuzz.Adapter;
 
 import android.content.Context;
 

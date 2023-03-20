@@ -3,64 +3,73 @@ package com.example.cricbuzz.Fragment.BrowseSeries;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.cricbuzz.Adapter.Browse_SeriesAdapter;
+import com.example.cricbuzz.ApiInterface;
+import com.example.cricbuzz.MainActivity;
+import com.example.cricbuzz.Model.seriesMapProto;
 import com.example.cricbuzz.R;
+import com.example.cricbuzz.RetrofitInstance;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Domestic_SeriesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Domestic_SeriesFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Domestic_SeriesFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Domestic_SeriesFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Domestic_SeriesFragment newInstance(String param1, String param2) {
-        Domestic_SeriesFragment fragment = new Domestic_SeriesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    ApiInterface apiInterface;
+    Browse_SeriesAdapter browseSeriesAdapter;
+    RecyclerView recyclerView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_domestic__series, container, false);
+        View view = inflater.inflate(R.layout.fragment_domestic__series, container, false);
+
+        recyclerView = view.findViewById(R.id.recyclerView);
+        apiInterface = RetrofitInstance.getRetrofit().create(ApiInterface.class);
+
+        ApiCall();
+
+        return view;
+    }
+
+    private void ApiCall(){
+
+        apiInterface.getBrowseSeries_Domestic(MainActivity.apiKey).enqueue(new Callback<seriesMapProto>() {
+            @Override
+            public void onResponse(Call<seriesMapProto> call, Response<seriesMapProto> response) {
+
+                if(response.isSuccessful()){
+
+                    seriesMapProto[] seriesMapProtos = response.body().getSeriesMapProto();
+
+                    browseSeriesAdapter = new Browse_SeriesAdapter(getContext(), seriesMapProtos);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    recyclerView.setAdapter(browseSeriesAdapter);
+                }else {
+
+                    Toast.makeText(getContext(), "Response Not SUccessfull...", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<seriesMapProto> call, Throwable t) {
+                Toast.makeText(getContext(), ""+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

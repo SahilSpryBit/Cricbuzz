@@ -6,7 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 
 import com.example.cricbuzz.R;
-import com.example.cricbuzz.TabBrowse_SeriesAdapter;
+import com.example.cricbuzz.Adapter.TabBrowse_SeriesAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 public class Browse_Series_Activity extends AppCompatActivity {

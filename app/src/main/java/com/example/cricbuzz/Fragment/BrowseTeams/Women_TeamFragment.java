@@ -1,4 +1,4 @@
-package com.example.cricbuzz.Fragment.BrowseSeries;
+package com.example.cricbuzz.Fragment.BrowseTeams;
 
 import android.os.Bundle;
 
@@ -11,10 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.cricbuzz.Adapter.Browse_SeriesAdapter;
+import com.example.cricbuzz.Adapter.Browse_TeamAdapter;
 import com.example.cricbuzz.ApiInterface;
 import com.example.cricbuzz.MainActivity;
-import com.example.cricbuzz.Model.seriesMapProto;
+import com.example.cricbuzz.Model.list;
 import com.example.cricbuzz.R;
 import com.example.cricbuzz.RetrofitInstance;
 
@@ -22,11 +22,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Women_SeriesFragment extends Fragment {
+public class Women_TeamFragment extends Fragment {
 
     RecyclerView recyclerView;
+    Browse_TeamAdapter browseTeamAdapter;
     ApiInterface apiInterface;
-    Browse_SeriesAdapter browseSeriesAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,11 @@ public class Women_SeriesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_women__series, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_women__team, container, false);
 
         recyclerView = view.findViewById(R.id.recyclerView);
+
         apiInterface = RetrofitInstance.getRetrofit().create(ApiInterface.class);
 
         ApiCall();
@@ -49,24 +50,24 @@ public class Women_SeriesFragment extends Fragment {
 
     private void ApiCall(){
 
-        apiInterface.getBrowseSeries_Women(MainActivity.apiKey).enqueue(new Callback<seriesMapProto>() {
+        apiInterface.getBrowseTeams_Women(MainActivity.apiKey).enqueue(new Callback<list>() {
             @Override
-            public void onResponse(Call<seriesMapProto> call, Response<seriesMapProto> response) {
+            public void onResponse(Call<list> call, Response<list> response) {
 
                 if(response.isSuccessful()){
-                    seriesMapProto[] seriesMapProtos = response.body().getSeriesMapProto();
 
-                    browseSeriesAdapter = new Browse_SeriesAdapter(getContext(), seriesMapProtos);
+                    list[] list = response.body().getList();
+
+                    browseTeamAdapter = new Browse_TeamAdapter(getContext(), list);
                     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    recyclerView.setAdapter(browseSeriesAdapter);
+                    recyclerView.setAdapter(browseTeamAdapter);
                 }else{
-
-                    Toast.makeText(getContext(), "Response Not Success...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Response Not SUccess...", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
-            public void onFailure(Call<seriesMapProto> call, Throwable t) {
+            public void onFailure(Call<list> call, Throwable t) {
                 Toast.makeText(getContext(), ""+t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
