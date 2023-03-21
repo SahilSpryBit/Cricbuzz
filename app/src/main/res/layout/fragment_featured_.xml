@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeee"
     android:orientation="vertical"
     tools:context=".Fragment.Home.Featured_Fragment">
 
@@ -11,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginVertical="10dp"
+        android:layout_marginTop="10dp"
         android:text="Matches"
         android:textColor="@color/black"
         android:textSize="18sp" />
@@ -22,8 +23,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-         />
+        tools:listitem="@layout/live_match_layout" />
 </LinearLayout>
 
 
-<!--    tools:listitem="@layout/live_match_layout"-->

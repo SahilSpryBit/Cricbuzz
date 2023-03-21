@@ -10,7 +10,7 @@ import com.example.cricbuzz.Activity.SplashActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String apiKey = "73bd3e0f70msheb9bee176bc470ap142772jsn90fce50fcf15";
+    public static final String apiKey = "5d510530d1msh0eaab1fe046fb56p1245a2jsn50955b0b9800";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -3,6 +3,7 @@ package com.example.cricbuzz;
 import com.example.cricbuzz.Model.list;
 import com.example.cricbuzz.Model.player;
 import com.example.cricbuzz.Model.seriesMapProto;
+import com.example.cricbuzz.Model.typeMatches;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -30,4 +31,15 @@ public interface ApiInterface {
 
     @GET("stats/v1/player/trending")
     Call<player> getBrowsePlayers_Trending(@Header("X-RapidAPI-Key") String apiKey);
+
+    @GET("matches/v1/live")
+    Call<typeMatches> getLive_Matches(@Header("X-RapidAPI-Key") String apiKey);
+
+    @GET("matches/v1/upcoming")
+    Call<typeMatches> getMatches_upcoming(@Header("X-RapidAPI-Key") String apiKey);
+
+    @GET("matches/v1/recent")
+    Call<typeMatches> getMatches_recent(@Header("X-RapidAPI-Key") String apiKey);
+
+
 }

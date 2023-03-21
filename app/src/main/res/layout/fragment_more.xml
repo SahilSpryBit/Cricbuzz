@@ -181,6 +181,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/icc_men"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ICC Rankings - Men"
@@ -196,6 +197,7 @@
             android:background="#D3CECE" />
 
         <TextView
+            android:id="@+id/icc_women"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ICC Rankings - Women"
@@ -211,6 +213,7 @@
             android:background="#D3CECE" />
 
         <TextView
+            android:id="@+id/record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Records"

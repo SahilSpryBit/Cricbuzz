@@ -15,13 +15,11 @@ import android.widget.TextView;
 import com.example.cricbuzz.Activity.Browse_Player_Activity;
 import com.example.cricbuzz.Activity.Browse_Series_Activity;
 import com.example.cricbuzz.Activity.Browse_Team_Activity;
+import com.example.cricbuzz.Activity.ICC_MenActivity;
 import com.example.cricbuzz.R;
 public class MoreFragment extends Fragment {
 
-    TextView browse_series, browse_team, browse_player;
-    public MoreFragment() {
-        // Required empty public constructor
-    }
+    TextView browse_series, browse_team, browse_player, icc_men, icc_women, record;
     public static MoreFragment newInstance() {
         MoreFragment fragment = new MoreFragment();
         return fragment;
@@ -43,6 +41,9 @@ public class MoreFragment extends Fragment {
         browse_series = view.findViewById(R.id.browse_series);
         browse_team = view.findViewById(R.id.browse_team);
         browse_player = view.findViewById(R.id.browse_player);
+        icc_men = view.findViewById(R.id.icc_men);
+        icc_women = view.findViewById(R.id.icc_women);
+        record = view.findViewById(R.id.record);
 
         browse_series.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +70,31 @@ public class MoreFragment extends Fragment {
 
                 Intent intent = new Intent(getContext(), Browse_Player_Activity.class);
                 startActivity(intent);
+
+            }
+        });
+
+        icc_men.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), ICC_MenActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        icc_women.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+
+        record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
 
             }
         });

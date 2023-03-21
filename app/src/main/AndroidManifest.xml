@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -13,9 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cricbuzz"
         tools:targetApi="31">
-
-<!--        .Activity-->
-
+        <activity
+            android:name=".Activity.Record_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ICC_WomenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ICC_MenActivity"
+            android:exported="false" /> <!-- .Activity -->
         <activity
             android:name=".Activity.Browse_Player_Activity"
             android:exported="false" />
