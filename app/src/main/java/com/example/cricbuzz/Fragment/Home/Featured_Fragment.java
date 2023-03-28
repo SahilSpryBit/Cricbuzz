@@ -29,7 +29,6 @@ public class Featured_Fragment extends Fragment {
     ApiInterface apiInterface;
     LiveMatch_Adapter liveMatch_adapter;
 
-    com.example.cricbuzz.Model.matches matches;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

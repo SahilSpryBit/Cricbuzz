@@ -3,64 +3,140 @@ package com.example.cricbuzz.Fragment.ICC_Men;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.cricbuzz.Adapter.IccMensRanking_Batsmen_Adapter;
+import com.example.cricbuzz.Adapter.IccMensRanking_Bowler_Adapter;
+import com.example.cricbuzz.ApiInterface;
+import com.example.cricbuzz.MainActivity;
+import com.example.cricbuzz.Model.MyDataClass;
+import com.example.cricbuzz.Model.rank;
 import com.example.cricbuzz.R;
+import com.example.cricbuzz.RetrofitInstance;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Men_BowlerFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Men_BowlerFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Men_BowlerFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Men_BowlerFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Men_BowlerFragment newInstance(String param1, String param2) {
-        Men_BowlerFragment fragment = new Men_BowlerFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    ApiInterface apiInterface;
+    RecyclerView recyclerView;
+    TextView txtTest, txtOdi, txtT20;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_men__bowler, container, false);
+        View view = inflater.inflate(R.layout.fragment_men__bowler, container, false);
+
+        apiInterface = RetrofitInstance.getRetrofit().create(ApiInterface.class);
+        recyclerView = view.findViewById(R.id.recyclerView_bowler);
+        txtTest = view.findViewById(R.id.txtTest_bowler);
+        txtOdi = view.findViewById(R.id.txtOdi_bowler);
+        txtT20 = view.findViewById(R.id.txtT20_bowler);
+
+        ApiCall("test");
+
+        txtTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                txtTest.setBackgroundColor(getContext().getResources().getColor(R.color.app_color));
+                txtTest.setTextColor(getContext().getResources().getColor(R.color.white));
+
+                txtOdi.setBackground(getContext().getDrawable(R.drawable.border_button));
+                txtT20.setBackground(getContext().getDrawable(R.drawable.border_button));
+                txtOdi.setTextColor(getContext().getResources().getColor(R.color.app_color));
+                txtT20.setTextColor(getContext().getResources().getColor(R.color.app_color));
+
+                ApiCall("test");
+
+            }
+        });
+
+        txtOdi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                txtOdi.setBackgroundColor(getContext().getResources().getColor(R.color.app_color));
+                txtOdi.setTextColor(getContext().getResources().getColor(R.color.white));
+
+                txtTest.setBackground(getContext().getDrawable(R.drawable.border_button));
+                txtT20.setBackground(getContext().getDrawable(R.drawable.border_button));
+                txtTest.setTextColor(getContext().getResources().getColor(R.color.app_color));
+                txtT20.setTextColor(getContext().getResources().getColor(R.color.app_color));
+
+
+                ApiCall("odi");
+
+            }
+        });
+
+        txtT20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                txtT20.setBackgroundColor(getContext().getResources().getColor(R.color.app_color));
+                txtT20.setTextColor(getContext().getResources().getColor(R.color.white));
+
+                txtOdi.setBackground(getContext().getDrawable(R.drawable.border_button));
+                txtTest.setBackground(getContext().getDrawable(R.drawable.border_button));
+                txtOdi.setTextColor(getContext().getResources().getColor(R.color.app_color));
+                txtTest.setTextColor(getContext().getResources().getColor(R.color.app_color));
+
+                ApiCall("t20");
+
+            }
+        });
+
+
+        return view;
+    }
+
+    private void ApiCall(String type){
+
+        apiInterface.getIccRankingMens_Bowler(MainActivity.apiKey, "cricbuzz-cricket.p.rapidapi.com", type).enqueue(new Callback<MyDataClass>() {
+            @Override
+            public void onResponse(Call<MyDataClass> call, Response<MyDataClass> response) {
+
+                if(response.isSuccessful()){
+
+                    List<rank> ranks = response.body().getRank();
+
+                    IccMensRanking_Bowler_Adapter iccMensRankingBowlerAdapter = new IccMensRanking_Bowler_Adapter(getContext(), ranks);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                    recyclerView.setAdapter(iccMensRankingBowlerAdapter);
+
+                    Log.d("Testinggg", "SUccesssss");
+
+                } else{
+                    Toast.makeText(getContext(), "Fail...", Toast.LENGTH_SHORT).show();
+                    Log.d("Testinggg", "Error ELSEEEE");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MyDataClass> call, Throwable t) {
+                Log.d("Testinggg", "Error "+t.getLocalizedMessage());
+                Toast.makeText(getContext(), t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 }

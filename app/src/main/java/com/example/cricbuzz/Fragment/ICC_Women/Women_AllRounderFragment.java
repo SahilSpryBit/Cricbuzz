@@ -1,4 +1,4 @@
-package com.example.cricbuzz.Fragment.ICC_Men;
+package com.example.cricbuzz.Fragment.ICC_Women;
 
 import android.os.Bundle;
 
@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cricbuzz.Adapter.IccMensRanking_AllRounder_Adapter;
-import com.example.cricbuzz.Adapter.IccMensRanking_Bowler_Adapter;
 import com.example.cricbuzz.ApiInterface;
 import com.example.cricbuzz.MainActivity;
 import com.example.cricbuzz.Model.MyDataClass;
@@ -28,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Men_AllRounderFragment extends Fragment {
+public class Women_AllRounderFragment extends Fragment {
     ApiInterface apiInterface;
     RecyclerView recyclerView;
     TextView txtTest, txtOdi, txtT20;
@@ -42,13 +41,13 @@ public class Men_AllRounderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_men__all_rounder, container, false);
+        View view = inflater.inflate(R.layout.fragment_women__all_rounder, container, false);
 
         apiInterface = RetrofitInstance.getRetrofit().create(ApiInterface.class);
-        recyclerView = view.findViewById(R.id.recyclerView_allrounder);
-        txtTest = view.findViewById(R.id.txtTest_allrounder);
-        txtOdi = view.findViewById(R.id.txtOdi_allrounder);
-        txtT20 = view.findViewById(R.id.txtT20_allrounder);
+        recyclerView = view.findViewById(R.id.recyclerView_allrounder_W);
+        txtTest = view.findViewById(R.id.txtTest_allrounder_W);
+        txtOdi = view.findViewById(R.id.txtOdi_allrounder_W);
+        txtT20 = view.findViewById(R.id.txtT20_allrounder_W);
 
         ApiCall("test");
 
@@ -109,21 +108,27 @@ public class Men_AllRounderFragment extends Fragment {
 
     private void ApiCall(String type){
 
-        apiInterface.getIccRankingMens_AllRounder(MainActivity.apiKey, "cricbuzz-cricket.p.rapidapi.com", type).enqueue(new Callback<MyDataClass>() {
+        apiInterface.getIccRankingWomens_AllRounder(MainActivity.apiKey, "cricbuzz-cricket.p.rapidapi.com", type, "1").enqueue(new Callback<MyDataClass>() {
             @Override
             public void onResponse(Call<MyDataClass> call, Response<MyDataClass> response) {
 
                 if(response.isSuccessful()){
 
-                    List<rank> ranks = response.body().getRank();
+                    if(response.body() != null){
+                        List<rank> ranks = response.body().getRank();
 
-                    IccMensRanking_AllRounder_Adapter iccMensRankingAllRounderAdapter = new IccMensRanking_AllRounder_Adapter(getContext(), ranks);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-                    recyclerView.setAdapter(iccMensRankingAllRounderAdapter);
+                        IccMensRanking_AllRounder_Adapter iccMensRankingAllRounderAdapter = new IccMensRanking_AllRounder_Adapter(getContext(), ranks);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        recyclerView.setAdapter(iccMensRankingAllRounderAdapter);
 
-                    Log.d("Testinggg", "SUccesssss");
+                        Log.d("Testinggg", "SUccesssss");
 
-                } else{
+                    }else{
+                        Toast.makeText(getContext(), "No Data Avaialbale!!", Toast.LENGTH_SHORT).show();
+                    }
+                    }
+
+                    else{
                     Toast.makeText(getContext(), "Fail...", Toast.LENGTH_SHORT).show();
                     Log.d("Testinggg", "Error ELSEEEE");
                 }

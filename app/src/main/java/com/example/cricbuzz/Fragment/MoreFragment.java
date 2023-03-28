@@ -16,6 +16,7 @@ import com.example.cricbuzz.Activity.Browse_Player_Activity;
 import com.example.cricbuzz.Activity.Browse_Series_Activity;
 import com.example.cricbuzz.Activity.Browse_Team_Activity;
 import com.example.cricbuzz.Activity.ICC_MenActivity;
+import com.example.cricbuzz.Activity.ICC_WomenActivity;
 import com.example.cricbuzz.R;
 public class MoreFragment extends Fragment {
 
@@ -87,7 +88,8 @@ public class MoreFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-
+                Intent intent = new Intent(getContext(), ICC_WomenActivity.class);
+                startActivity(intent);
             }
         });
 
