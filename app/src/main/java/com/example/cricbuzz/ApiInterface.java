@@ -1,10 +1,15 @@
 package com.example.cricbuzz;
 
 import com.example.cricbuzz.Model.MyDataClass;
+import com.example.cricbuzz.Model.Root;
 import com.example.cricbuzz.Model.list;
 import com.example.cricbuzz.Model.player;
 import com.example.cricbuzz.Model.seriesMapProto;
+import com.example.cricbuzz.Model.storyList;
 import com.example.cricbuzz.Model.typeMatches;
+import com.example.cricbuzz.Model.values;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -66,6 +71,15 @@ public interface ApiInterface {
 
     @GET("stats/v1/rankings/teams")
     Call<MyDataClass> getIccRankingWomens_Teams(@Header("X-RapidAPI-Key") String apiKey, @Header("X-RapidAPI-Host") String hostname, @Query("formatType") String formatType, @Query("isWomen") String isWomen);
+
+    @GET("news/v1/index")
+    Call<storyList> getNews(@Header("X-RapidAPI-Key") String apiKey);
+
+    @GET("stats/v1/iccstanding/team/matchtype/1")
+    Call<values> getTestIccStanding(@Header("X-RapidAPI-Key") String apiKey);
+
+    @GET("stats/v1/iccstanding/team/matchtype/2")
+    Call<values> getOdiIccStanding(@Header("X-RapidAPI-Key") String apiKey);
 
 }
 

@@ -14,6 +14,12 @@
         android:theme="@style/Theme.Cricbuzz"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.ICC_Worldcup_LeagueActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ICC_WorldTestActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Record_Activity"
             android:exported="false" />
         <activity

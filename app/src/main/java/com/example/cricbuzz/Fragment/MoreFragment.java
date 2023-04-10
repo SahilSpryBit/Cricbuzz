@@ -17,10 +17,12 @@ import com.example.cricbuzz.Activity.Browse_Series_Activity;
 import com.example.cricbuzz.Activity.Browse_Team_Activity;
 import com.example.cricbuzz.Activity.ICC_MenActivity;
 import com.example.cricbuzz.Activity.ICC_WomenActivity;
+import com.example.cricbuzz.Activity.ICC_WorldTestActivity;
+import com.example.cricbuzz.Activity.ICC_Worldcup_LeagueActivity;
 import com.example.cricbuzz.R;
 public class MoreFragment extends Fragment {
 
-    TextView browse_series, browse_team, browse_player, icc_men, icc_women, record;
+    TextView browse_series, browse_team, browse_player, icc_men, icc_women, record, icc_world_test, icc_world_league;
     public static MoreFragment newInstance() {
         MoreFragment fragment = new MoreFragment();
         return fragment;
@@ -45,6 +47,8 @@ public class MoreFragment extends Fragment {
         icc_men = view.findViewById(R.id.icc_men);
         icc_women = view.findViewById(R.id.icc_women);
         record = view.findViewById(R.id.record);
+        icc_world_test = view.findViewById(R.id.icc_world_test);
+        icc_world_league = view.findViewById(R.id.icc_world_league);
 
         browse_series.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +102,24 @@ public class MoreFragment extends Fragment {
             public void onClick(View v) {
 
 
+            }
+        });
+
+        icc_world_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), ICC_WorldTestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        icc_world_league.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getContext(), ICC_Worldcup_LeagueActivity.class);
+                startActivity(intent);
             }
         });
 
