@@ -1,14 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeee"
+    android:orientation="vertical"
     tools:context=".Fragment.Matches.RecentFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearInternational"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txtMatchType1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="6dp"
+                    android:paddingVertical="8dp"
+                    android:text="INTERNATIONAL"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/live_all_formate_matches_layout"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLeague"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txtMatchType2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="6dp"
+                    android:paddingVertical="8dp"
+                    android:text="LEAGUE"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearDomestic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txtMatchType3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="6dp"
+                    android:paddingVertical="8dp"
+                    android:text="DOMESTIC"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView33"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearWomen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txtMatchType4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="6dp"
+                    android:paddingVertical="8dp"
+                    android:text="WOMEN"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView44"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

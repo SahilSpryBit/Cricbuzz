@@ -51,7 +51,7 @@ public class Featured_Fragment extends Fragment {
 
     private void ApiCall(){
 
-        apiInterface.getMatches_recent(MainActivity.apiKey).enqueue(new Callback<typeMatches>() {
+        apiInterface.getLive_Matches(MainActivity.apiKey).enqueue(new Callback<typeMatches>() {
             @Override
             public void onResponse(Call<typeMatches> call, Response<typeMatches> response) {
                 if(response.isSuccessful()){

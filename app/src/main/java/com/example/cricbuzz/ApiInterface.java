@@ -1,15 +1,12 @@
 package com.example.cricbuzz;
 
 import com.example.cricbuzz.Model.MyDataClass;
-import com.example.cricbuzz.Model.Root;
 import com.example.cricbuzz.Model.list;
 import com.example.cricbuzz.Model.player;
 import com.example.cricbuzz.Model.seriesMapProto;
 import com.example.cricbuzz.Model.storyList;
 import com.example.cricbuzz.Model.typeMatches;
 import com.example.cricbuzz.Model.values;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

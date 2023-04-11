@@ -15,13 +15,9 @@ import android.widget.Toast;
 import com.example.cricbuzz.Adapter.News_Adapter;
 import com.example.cricbuzz.ApiInterface;
 import com.example.cricbuzz.MainActivity;
-import com.example.cricbuzz.Model.Root;
-import com.example.cricbuzz.Model.story;
 import com.example.cricbuzz.Model.storyList;
 import com.example.cricbuzz.R;
 import com.example.cricbuzz.RetrofitInstance;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;

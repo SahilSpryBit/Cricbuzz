@@ -45,82 +45,82 @@ public class LiveMatch_Adapter extends RecyclerView.Adapter<LiveMatch_Adapter.Vi
 
         typeMatches mydata = typeMatches[position];
 
-        holder.txtMatchAndSeriesName.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getMatchDesc() + "-" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getSeriesName());
-        holder.txtTeam1Name.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getTeam1().getTeamSName());
-        holder.txtTeam2Name.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getTeam2().getTeamSName());
+        holder.txtMatchAndSeriesName.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getMatchDesc() + "-" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getSeriesName());
+        holder.txtTeam1Name.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getTeam1().getTeamSName());
+        holder.txtTeam2Name.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getTeam2().getTeamSName());
 
-        Glide.with(context).load(new GlideUrl("https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getTeam1().getImageId() + "/i.jpg",
+        Glide.with(context).load(new GlideUrl("https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getTeam1().getImageId() + "/i.jpg",
                 new LazyHeaders.Builder().addHeader("X-RapidAPI-Key", MainActivity.apiKey).build())).into(holder.imgTeam1);
 
-        Glide.with(context).load(new GlideUrl("https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getTeam2().getImageId() + "/i.jpg",
+        Glide.with(context).load(new GlideUrl("https://cricbuzz-cricket.p.rapidapi.com/img/v1/i1/c" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getTeam2().getImageId() + "/i.jpg",
                 new LazyHeaders.Builder().addHeader("X-RapidAPI-Key", MainActivity.apiKey).build())).into(holder.imgTeam2);
 
-        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore() != null) {
+        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore() != null) {
 
             //team1 score
-            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score() != null) {
-                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1() != null) {
-                    if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2() != null) {
+            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score() != null) {
+                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1() != null) {
+                    if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2() != null) {
 
-                        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().isDeclared() == true) {
-                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getWickets() == 10) {
+                        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().isDeclared() == true) {
+                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getWickets() == 10) {
 
-                                holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getRuns() + " & " +
-                                        mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getWickets() + " d");
+                                holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getRuns() + " & " +
+                                        mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getWickets() + " d");
 
                                 holder.txtTeam1Score.setTextColor(Color.GRAY);
                                 holder.txtTeam1Name.setTextColor(Color.GRAY);
 
                             }
                             else {
-                                holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getWickets() + " & " +
-                                        mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getWickets() + " d");
+                                holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getWickets() + " & " +
+                                        mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getWickets() + " d");
 
                                 holder.txtTeam1Score.setTextColor(Color.GRAY);
                                 holder.txtTeam1Name.setTextColor(Color.GRAY);
                             }
                         } else {
 
-                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getWickets() == 10) {
-                                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getWickets() == 10) {
-                                    holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getRuns() + " & " +
-                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getRuns());
+                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getWickets() == 10) {
+                                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getWickets() == 10) {
+                                    holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getRuns() + " & " +
+                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getRuns());
 
                                     holder.txtTeam1Score.setTextColor(Color.GRAY);
                                     holder.txtTeam1Name.setTextColor(Color.GRAY);
                                 } else {
-                                    holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getWickets() + " & " +
-                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getRuns());
+                                    holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getWickets() + " & " +
+                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getRuns());
 
                                     holder.txtTeam1Score.setTextColor(Color.GRAY);
                                     holder.txtTeam1Name.setTextColor(Color.GRAY);
                                 }
                             } else {
-                                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getWickets() == 10) {
-                                    holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getRuns() + " & " +
-                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getWickets());
+                                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getWickets() == 10) {
+                                    holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getRuns() + " & " +
+                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getWickets());
 
                                 } else {
-                                    holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getWickets() + " & " +
-                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs2().getWickets());
+                                    holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getWickets() + " & " +
+                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs2().getWickets());
                                 }
                             }
                         }
                     }else {
 
-                        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().isDeclared() == true) {
-                            holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getWickets() + " d");
+                        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().isDeclared() == true) {
+                            holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getWickets() + " d");
 
                             holder.txtTeam1Score.setTextColor(Color.GRAY);
                             holder.txtTeam1Name.setTextColor(Color.GRAY);
                         } else {
-                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getWickets() == 10) {
-                                holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getRuns() + " (" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getOvers() + ")");
+                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getWickets() == 10) {
+                                holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getRuns() + " (" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getOvers() + ")");
 
                                 holder.txtTeam1Score.setTextColor(Color.GRAY);
                                 holder.txtTeam1Name.setTextColor(Color.GRAY);
                             } else {
-                                holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getWickets() + " (" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam1Score().getInngs1().getOvers() + ")");
+                                holder.txtTeam1Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getWickets() + " (" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam1Score().getInngs1().getOvers() + ")");
                             }
                         }
                     }
@@ -137,67 +137,67 @@ public class LiveMatch_Adapter extends RecyclerView.Adapter<LiveMatch_Adapter.Vi
 
             //team 2 scorecard
 
-            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score() != null) {
-                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1() != null) {
-                    if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2() != null) {
+            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score() != null) {
+                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1() != null) {
+                    if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2() != null) {
 
-                        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().isDeclared() == true) {
-                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getWickets() == 10) {
+                        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().isDeclared() == true) {
+                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getWickets() == 10) {
 
-                                holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getRuns() + " & " +
-                                        mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getWickets() + " d");
+                                holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getRuns() + " & " +
+                                        mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getWickets() + " d");
 
                                 holder.txtTeam2Score.setTextColor(Color.GRAY);
                                 holder.txtTeam2Name.setTextColor(Color.GRAY);
                             } else {
-                                holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getWickets() + " & " +
-                                        mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getWickets() + " d");
+                                holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getWickets() + " & " +
+                                        mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getWickets() + " d");
 
                                 holder.txtTeam2Score.setTextColor(Color.GRAY);
                                 holder.txtTeam2Name.setTextColor(Color.GRAY);
                             }
                         } else {
 
-                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getWickets() == 10) {
-                                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getWickets() == 10) {
-                                    holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getRuns() + " & " +
-                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getRuns());
+                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getWickets() == 10) {
+                                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getWickets() == 10) {
+                                    holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getRuns() + " & " +
+                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getRuns());
 
                                     holder.txtTeam2Score.setTextColor(Color.GRAY);
                                     holder.txtTeam2Name.setTextColor(Color.GRAY);
                                 } else {
-                                    holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getWickets() + " & " +
-                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getRuns());
+                                    holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getWickets() + " & " +
+                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getRuns());
 
                                     holder.txtTeam2Score.setTextColor(Color.GRAY);
                                     holder.txtTeam2Name.setTextColor(Color.GRAY);
                                 }
                             } else {
-                                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getWickets() == 10) {
-                                    holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getRuns() + " & " +
-                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getWickets());
+                                if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getWickets() == 10) {
+                                    holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getRuns() + " & " +
+                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getWickets());
 
                                 } else {
-                                    holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getWickets() + " & " +
-                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs2().getWickets());
+                                    holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getWickets() + " & " +
+                                            mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs2().getWickets());
                                 }
                             }
                         }
                     } else {
 
-                        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().isDeclared() == true) {
-                            holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getWickets() + " d");
+                        if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().isDeclared() == true) {
+                            holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getWickets() + " d");
 
                             holder.txtTeam2Score.setTextColor(Color.GRAY);
                             holder.txtTeam2Name.setTextColor(Color.GRAY);
                         } else {
-                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getWickets() == 10) {
-                                holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getRuns() + " (" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getOvers() + ")");
+                            if (mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getWickets() == 10) {
+                                holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getRuns() + " (" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getOvers() + ")");
 
                                 holder.txtTeam2Score.setTextColor(Color.GRAY);
                                 holder.txtTeam2Name.setTextColor(Color.GRAY);
                             } else {
-                                holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getWickets() + " (" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchScore().getTeam2Score().getInngs1().getOvers() + ")");
+                                holder.txtTeam2Score.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getRuns() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getWickets() + " (" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchScore().getTeam2Score().getInngs1().getOvers() + ")");
                             }
                         }
                     }
@@ -219,17 +219,17 @@ public class LiveMatch_Adapter extends RecyclerView.Adapter<LiveMatch_Adapter.Vi
         }
 
         //match status
-        if(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getState().equalsIgnoreCase("Won")
-                || mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getState().equalsIgnoreCase("Complete")){
+        if(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getState().equalsIgnoreCase("Won")
+                || mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getState().equalsIgnoreCase("Complete")){
             holder.txtMatchStatus.setTextColor(Color.BLUE);
         }
-        holder.txtMatchStatus.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getStatus());
+        holder.txtMatchStatus.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getStatus());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(context, "POSITION :: " + position + "\nMYDATA ::: " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getSeriesName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "POSITION :: " + position + "\nMYDATA ::: " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getSeriesName(), Toast.LENGTH_SHORT).show();
             }
         });
     }
