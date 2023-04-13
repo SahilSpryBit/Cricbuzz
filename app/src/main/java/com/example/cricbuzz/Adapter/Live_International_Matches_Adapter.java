@@ -31,6 +31,12 @@ public class Live_International_Matches_Adapter extends RecyclerView.Adapter<Liv
         this.typeMatches = typeMatches;
     }
 
+    public void Live_International_Matches_Adapter_Notify(com.example.cricbuzz.Model.typeMatches[] typeMatches) {
+        this.typeMatches = typeMatches;
+        notifyDataSetChanged();
+    }
+
+
     @NonNull
     @Override
     public Live_International_Matches_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

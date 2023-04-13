@@ -85,7 +85,6 @@ public class RecentFragment extends Fragment {
 
                     /*for(int i=0; i<typeMatches.length; i++) {*/
                         if(typeMatches[0].getMatchType().equals("International")) {
-                            Toast.makeText(getContext(), "My Data 0 : "+ typeMatches[0].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(), Toast.LENGTH_SHORT).show();
                             for(int j = 0; j < typeMatches[0].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(); j++) {
                                 linearInternational.setVisibility(View.VISIBLE);
                                 txtMatchType1.setText(typeMatches[0].getMatchType().toUpperCase());
@@ -97,8 +96,7 @@ public class RecentFragment extends Fragment {
                         }
 
                         if(typeMatches[1].getMatchType().equals("League")) {
-                            Toast.makeText(getContext(), "My Data 1 : "+ typeMatches[1].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(), Toast.LENGTH_SHORT).show();
-                            for (int j = 0; j < typeMatches[1].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(); j++) {
+                           for (int j = 0; j < typeMatches[1].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(); j++) {
                                 linearLeague.setVisibility(View.VISIBLE);
                                 txtMatchType2.setText(typeMatches[1].getMatchType().toUpperCase());
 
@@ -109,7 +107,6 @@ public class RecentFragment extends Fragment {
                         }
 
                         if(typeMatches[2].getMatchType().equals("Domestic")) {
-                            Toast.makeText(getContext(), "My Data 2 : "+ typeMatches[2].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(), Toast.LENGTH_SHORT).show();
                             for (int j = 0; j < typeMatches[2].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(); j++) {
                                 linearDomestic.setVisibility(View.VISIBLE);
                                 txtMatchType3.setText(typeMatches[2].getMatchType().toUpperCase());
@@ -122,7 +119,6 @@ public class RecentFragment extends Fragment {
                         }
 
                         if(typeMatches[3].getMatchType().equals("Women")) {
-                            Toast.makeText(getContext(), "My Data 3 : "+ typeMatches[3].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(), Toast.LENGTH_SHORT).show();
                             for (int j = 0; j < typeMatches[3].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(); j++) {
                                 linearWomen.setVisibility(View.VISIBLE);
                                 txtMatchType4.setText(typeMatches[3].getMatchType().toUpperCase());

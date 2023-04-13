@@ -31,6 +31,11 @@ public class Live_League_Matches_Adapter extends RecyclerView.Adapter<Live_Leagu
         this.typeMatches = typeMatches;
     }
 
+    public void Live_League_Matches_Adapter_Notify(typeMatches[] typeMatches) {
+        this.typeMatches = typeMatches;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

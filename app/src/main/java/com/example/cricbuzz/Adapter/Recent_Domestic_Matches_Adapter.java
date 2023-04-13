@@ -1,5 +1,6 @@
 package com.example.cricbuzz.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.Log;
@@ -38,7 +39,7 @@ public class Recent_Domestic_Matches_Adapter extends RecyclerView.Adapter<Recent
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Recent_Domestic_Matches_Adapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull Recent_Domestic_Matches_Adapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
         com.example.cricbuzz.Model.typeMatches mydata = typeMatches[2];
 
@@ -58,7 +59,8 @@ public class Recent_Domestic_Matches_Adapter extends RecyclerView.Adapter<Recent
                 if (mydata.getSeriesMatches().get(0).getAdDetail().getPosition() == position) {
                     Log.d("Testinggg", "Ad Detailll");
                     holder.main_view.setVisibility(View.GONE);
-                } else{
+                }
+                else{
                     holder.txtMatchAndVenueName.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getMatchDesc() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getVenueInfo().getCity());
                     holder.txtTeam1Name.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getTeam1().getTeamSName());
                     holder.txtTeam2Name.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getTeam2().getTeamSName());

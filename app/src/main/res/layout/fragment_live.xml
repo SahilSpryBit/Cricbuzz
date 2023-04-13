@@ -9,11 +9,13 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/scrollview">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:id="@+id/main_view"
             android:orientation="vertical">
 
             <LinearLayout
@@ -113,5 +115,15 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+    </LinearLayout>
 </LinearLayout>

@@ -31,7 +31,7 @@ public class Live_Domestic_Matches_Adapter extends RecyclerView.Adapter<Live_Dom
         this.typeMatches = typeMatches;
     }
 
-    public void Live_Domestic_Matches_Adapter123(com.example.cricbuzz.Model.typeMatches[] typeMatches) {
+    public void Live_Domestic_Matches_Adapter_Notify(com.example.cricbuzz.Model.typeMatches[] typeMatches) {
         this.typeMatches = typeMatches;
         notifyDataSetChanged();
     }

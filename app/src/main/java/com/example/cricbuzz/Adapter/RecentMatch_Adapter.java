@@ -18,36 +18,30 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.LazyHeaders;
 import com.example.cricbuzz.MainActivity;
-import com.example.cricbuzz.Model.typeMatches;
 import com.example.cricbuzz.R;
 
-public class LiveMatch_Adapter extends RecyclerView.Adapter<LiveMatch_Adapter.ViewHolder> {
+public class RecentMatch_Adapter extends RecyclerView.Adapter<RecentMatch_Adapter.ViewHolder> {
 
     Context context;
     com.example.cricbuzz.Model.typeMatches[] typeMatches;
 
-    public LiveMatch_Adapter(Context context, com.example.cricbuzz.Model.typeMatches[] typeMatches) {
+    public RecentMatch_Adapter(Context context, com.example.cricbuzz.Model.typeMatches[] typeMatches) {
         this.context = context;
         this.typeMatches = typeMatches;
     }
 
-    public void LiveData(typeMatches[] typeMatches){
-        this.typeMatches = typeMatches;
-        notifyDataSetChanged();
-    }
-
     @NonNull
     @Override
-    public LiveMatch_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecentMatch_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.live_match_layout, parent, false);
-        return new ViewHolder(view);
+        return new RecentMatch_Adapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LiveMatch_Adapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull RecentMatch_Adapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        typeMatches mydata = typeMatches[0];
+        com.example.cricbuzz.Model.typeMatches mydata = typeMatches[position];
 
         holder.txtMatchAndSeriesName.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getMatchDesc() + "-" + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getSeriesName());
         holder.txtTeam1Name.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getTeam1().getTeamSName());
@@ -240,7 +234,7 @@ public class LiveMatch_Adapter extends RecyclerView.Adapter<LiveMatch_Adapter.Vi
 
     @Override
     public int getItemCount() {
-        return typeMatches == null ? 0 : typeMatches[0].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size();
+        return typeMatches.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

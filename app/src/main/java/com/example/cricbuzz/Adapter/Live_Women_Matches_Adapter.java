@@ -31,6 +31,11 @@ public class Live_Women_Matches_Adapter extends RecyclerView.Adapter<Live_Women_
         this.typeMatches = typeMatches;
     }
 
+    public void Live_Women_Matches_Adapter_Notify(com.example.cricbuzz.Model.typeMatches[] typeMatches) {
+        this.typeMatches = typeMatches;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public Live_Women_Matches_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
