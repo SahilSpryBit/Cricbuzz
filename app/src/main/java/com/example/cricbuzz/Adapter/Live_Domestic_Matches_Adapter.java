@@ -45,7 +45,7 @@ public class Live_Domestic_Matches_Adapter extends RecyclerView.Adapter<Live_Dom
 
     @Override
     public void onBindViewHolder(@NonNull Live_Domestic_Matches_Adapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        typeMatches mydata = typeMatches[2];
+        typeMatches mydata = typeMatches[position];
 
 
         if (mydata.getMatchType().equals("Domestic")) {
@@ -431,7 +431,7 @@ public class Live_Domestic_Matches_Adapter extends RecyclerView.Adapter<Live_Dom
 
     @Override
     public int getItemCount() {
-        return typeMatches[2].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size();
+        return typeMatches == null  ? 0 : typeMatches.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

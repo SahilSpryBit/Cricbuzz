@@ -45,7 +45,7 @@ public class Live_League_Matches_Adapter extends RecyclerView.Adapter<Live_Leagu
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        typeMatches mydata = typeMatches[1];
+        typeMatches mydata = typeMatches[position];
 
 
         if (mydata.getMatchType().equals("League")) {
@@ -431,7 +431,7 @@ public class Live_League_Matches_Adapter extends RecyclerView.Adapter<Live_Leagu
 
     @Override
     public int getItemCount() {
-        return typeMatches[1].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size();
+        return typeMatches == null  ? 0 : typeMatches.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

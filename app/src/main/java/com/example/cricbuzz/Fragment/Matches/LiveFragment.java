@@ -2,11 +2,13 @@ package com.example.cricbuzz.Fragment.Matches;
 
 import android.os.Bundle;
 
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +43,9 @@ public class LiveFragment extends Fragment {
 
     typeMatches[] typeMatches = null;
 
+    NestedScrollView nestedScrollView;
+    LinearLayout linearLayout;
+
     Handler handler = new Handler();
     Runnable runnable;
 
@@ -70,6 +75,13 @@ public class LiveFragment extends Fragment {
         linearDomestic = view.findViewById(R.id.linearDomestic);
         linearWomen = view.findViewById(R.id.linearWomen);
 
+
+        nestedScrollView = view.findViewById(R.id.scrollview);
+        linearLayout = view.findViewById(R.id.nodatalayout);
+
+        linearLayout.setVisibility(View.GONE);
+        nestedScrollView.setVisibility(View.VISIBLE);
+
         live_international_matches_adapter = new Live_International_Matches_Adapter(getContext(), typeMatches);
         recyclerView1.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView1.setAdapter(live_international_matches_adapter);
@@ -87,7 +99,7 @@ public class LiveFragment extends Fragment {
         recyclerView4.setAdapter(live_women_matches_adapter);
 
 
-        //ApiCall();
+        ApiCall();
 
         return view;
     }
@@ -120,48 +132,84 @@ public class LiveFragment extends Fragment {
 
                     if (response.body() != null) {
 
-                        typeMatches = response.body().getTypeMatches();
+                        linearLayout.setVisibility(View.GONE);
+                        nestedScrollView.setVisibility(View.VISIBLE);
 
-                        /*for(int i=0; i<typeMatches.length; i++) {*/
-                        if (typeMatches[0].getMatchType().equals("International")) {
-                            for (int j = 0; j < typeMatches[0].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(); j++) {
-                                linearInternational.setVisibility(View.VISIBLE);
-                                txtMatchType1.setText(typeMatches[0].getMatchType().toUpperCase());
+                        if(response.body().getTypeMatches() != null && response.body().getTypeMatches().length>0){
 
+                            typeMatches = response.body().getTypeMatches();
+
+                            Log.d("Testinggg", "Type Matches :: "+ typeMatches.length);
+                            Log.d("Testinggg", "Series Matches :: "+ typeMatches[0].getSeriesMatches().size());
+                            Log.d("Testinggg", "Matches :: "+ typeMatches[0].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size());
+
+                            for(int i = 0 ; i < typeMatches.length ; i++){
+                                if(typeMatches[i].getMatchType() != null && !typeMatches[i].getMatchType().isEmpty() && typeMatches[i].getMatchType().equalsIgnoreCase("International")){
+
+                                    linearInternational.setVisibility(View.VISIBLE);
+                                    txtMatchType1.setText(typeMatches[i].getMatchType().toUpperCase());
+                                    break;
+
+                                }
+
+                            }
+                            if(typeMatches != null && typeMatches.length >0) {
                                 live_international_matches_adapter.Live_International_Matches_Adapter_Notify(typeMatches);
                             }
-                        }
 
-                        if (typeMatches[1].getMatchType().equals("League")) {
-                            for (int j = 0; j < typeMatches[1].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(); j++) {
-                                linearLeague.setVisibility(View.VISIBLE);
-                                txtMatchType2.setText(typeMatches[1].getMatchType().toUpperCase());
+                            for(int i = 0 ; i < typeMatches.length ; i++){
+                                if(typeMatches[i].getMatchType() != null && !typeMatches[i].getMatchType().isEmpty() && typeMatches[i].getMatchType().equalsIgnoreCase("League")){
 
+                                    linearLeague.setVisibility(View.VISIBLE);
+                                    txtMatchType2.setText(typeMatches[i].getMatchType().toUpperCase());
+                                    break;
+
+                                }
+
+                            }
+                            if(typeMatches != null && typeMatches.length >0) {
                                 live_league_matches_adapter.Live_League_Matches_Adapter_Notify(typeMatches);
                             }
-                        }
 
-                        if (typeMatches[2].getMatchType().equals("Domestic")) {
-                            for (int j = 0; j < typeMatches[2].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(); j++) {
-                                linearDomestic.setVisibility(View.VISIBLE);
-                                txtMatchType3.setText(typeMatches[2].getMatchType().toUpperCase());
+                            for(int i = 0 ; i < typeMatches.length ; i++){
+                                if(typeMatches[i].getMatchType() != null && !typeMatches[i].getMatchType().isEmpty() && typeMatches[i].getMatchType().equalsIgnoreCase("Domestic")){
 
+                                    linearDomestic.setVisibility(View.VISIBLE);
+                                    txtMatchType3.setText(typeMatches[i].getMatchType().toUpperCase());
+                                    break;
+
+                                }
+
+                            }
+                            if(typeMatches != null && typeMatches.length >0) {
                                 live_domestic_matches_adapter.Live_Domestic_Matches_Adapter_Notify(typeMatches);
                             }
-                        }
 
-                        if (typeMatches[3].getMatchType().equals("Women")) {
-                            for (int j = 0; j < typeMatches[3].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size(); j++) {
-                                linearWomen.setVisibility(View.VISIBLE);
-                                txtMatchType4.setText(typeMatches[3].getMatchType().toUpperCase());
+                            /*for(int i=0; i<typeMatches.length; i++) {*/
 
+                            for(int i = 0 ; i < typeMatches.length ; i++){
+                                if(typeMatches[i].getMatchType() != null && !typeMatches[i].getMatchType().isEmpty() && typeMatches[i].getMatchType().equalsIgnoreCase("Women")){
+
+                                    linearWomen.setVisibility(View.VISIBLE);
+                                    txtMatchType4.setText(typeMatches[i].getMatchType().toUpperCase());
+                                    break;
+
+                                }
+
+                            }
+                            if(typeMatches != null && typeMatches.length >0) {
                                 live_women_matches_adapter.Live_Women_Matches_Adapter_Notify(typeMatches);
                             }
+
                         }
+
+
                         /*}*/
                     } else {
 
                         Toast.makeText(getContext(), "Faill Response Nulll", Toast.LENGTH_SHORT).show();
+                        linearLayout.setVisibility(View.VISIBLE);
+                        nestedScrollView.setVisibility(View.GONE);
                     }
 
                 } else {

@@ -45,7 +45,7 @@ public class Live_Women_Matches_Adapter extends RecyclerView.Adapter<Live_Women_
 
     @Override
     public void onBindViewHolder(@NonNull Live_Women_Matches_Adapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        com.example.cricbuzz.Model.typeMatches mydata = typeMatches[3];
+        com.example.cricbuzz.Model.typeMatches mydata = typeMatches[position];
 
 
         if (mydata.getMatchType().equals("Women")) {
@@ -394,7 +394,7 @@ public class Live_Women_Matches_Adapter extends RecyclerView.Adapter<Live_Women_
 
     @Override
     public int getItemCount() {
-        return typeMatches[3].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size();
+        return typeMatches == null  ? 0 : typeMatches.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

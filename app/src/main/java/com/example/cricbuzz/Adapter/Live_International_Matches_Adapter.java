@@ -47,7 +47,7 @@ public class Live_International_Matches_Adapter extends RecyclerView.Adapter<Liv
     @Override
     public void onBindViewHolder(@NonNull Live_International_Matches_Adapter.ViewHolder holder, int position) {
 
-        typeMatches mydata = typeMatches[0];
+        typeMatches mydata = typeMatches[position];
 
         if (mydata.getMatchType().equals("International")) {
 
@@ -432,7 +432,7 @@ public class Live_International_Matches_Adapter extends RecyclerView.Adapter<Liv
 
     @Override
     public int getItemCount() {
-        return typeMatches[0].getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().size();
+        return typeMatches == null  ? 0 : typeMatches.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
