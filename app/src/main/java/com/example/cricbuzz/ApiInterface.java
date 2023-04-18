@@ -1,5 +1,6 @@
 package com.example.cricbuzz;
 
+import com.example.cricbuzz.Model.MatchModel;
 import com.example.cricbuzz.Model.MyDataClass;
 import com.example.cricbuzz.Model.list;
 import com.example.cricbuzz.Model.player;
@@ -11,6 +12,7 @@ import com.example.cricbuzz.Model.values;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
@@ -77,6 +79,9 @@ public interface ApiInterface {
 
     @GET("stats/v1/iccstanding/team/matchtype/2")
     Call<values> getOdiIccStanding(@Header("X-RapidAPI-Key") String apiKey);
+
+    @GET("mcenter/v1/{match_id}")
+    Call<MatchModel> getMatchDetails(@Header("X-RapidAPI-Key") String apiKey, @Path("match_id") int match_id);
 
 }
 

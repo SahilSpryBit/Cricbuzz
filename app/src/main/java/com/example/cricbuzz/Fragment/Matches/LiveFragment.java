@@ -31,7 +31,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LiveFragment extends Fragment {
-
     ApiInterface apiInterface;
     Live_International_Matches_Adapter live_international_matches_adapter;
     Live_League_Matches_Adapter live_league_matches_adapter;
@@ -98,7 +97,6 @@ public class LiveFragment extends Fragment {
         recyclerView4.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView4.setAdapter(live_women_matches_adapter);
 
-
         ApiCall();
 
         return view;
@@ -122,8 +120,6 @@ public class LiveFragment extends Fragment {
     }*/
 
     private void ApiCall() {
-
-
         apiInterface.getLive_Matches(MainActivity.apiKey).enqueue(new Callback<typeMatches>() {
             @Override
             public void onResponse(Call<typeMatches> call, Response<typeMatches> response) {

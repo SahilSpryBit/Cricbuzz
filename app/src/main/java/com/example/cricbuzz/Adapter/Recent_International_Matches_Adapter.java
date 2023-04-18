@@ -60,7 +60,8 @@ public class Recent_International_Matches_Adapter extends RecyclerView.Adapter<R
                 if (mydata.getSeriesMatches().get(0).getAdDetail().getPosition() == position) {
                     Log.d("Testinggg", "Ad Detailll");
                     holder.main_view.setVisibility(View.GONE);
-                } else{
+                }
+                else{
                     holder.txtMatchAndVenueName.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getMatchDesc() + " - " + mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getVenueInfo().getCity());
                     holder.txtTeam1Name.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getTeam1().getTeamSName());
                     holder.txtTeam2Name.setText(mydata.getSeriesMatches().get(0).getSeriesAdWrapper().getMatches().get(position).getMatchInfo().getTeam2().getTeamSName());

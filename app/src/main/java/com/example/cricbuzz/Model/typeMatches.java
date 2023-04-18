@@ -7,6 +7,8 @@ import java.util.List;
 public class typeMatches {
 
     private String matchType;
+
+    @SerializedName("seriesMatches")
     List<seriesMatches> seriesMatches;
 
     @SerializedName("typeMatches")

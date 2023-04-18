@@ -21,6 +21,99 @@ public class matchInfo {
     private String stateTitle;
     private boolean isFantasyEnabled;
 
+    private String matchDescription;
+    private long matchStartTimestamp;
+    private long matchCompleteTimestamp;
+
+    tossResults tossResults;
+    series series;
+    venue venue;
+    umpire1 umpire1;
+    umpire2 umpire2;
+    umpire3 umpire3;
+
+    referee referee;
+
+    public com.example.cricbuzz.Model.referee getReferee() {
+        return referee;
+    }
+
+    public void setReferee(com.example.cricbuzz.Model.referee referee) {
+        this.referee = referee;
+    }
+
+    public com.example.cricbuzz.Model.umpire1 getUmpire1() {
+        return umpire1;
+    }
+
+    public void setUmpire1(com.example.cricbuzz.Model.umpire1 umpire1) {
+        this.umpire1 = umpire1;
+    }
+
+    public com.example.cricbuzz.Model.umpire2 getUmpire2() {
+        return umpire2;
+    }
+
+    public void setUmpire2(com.example.cricbuzz.Model.umpire2 umpire2) {
+        this.umpire2 = umpire2;
+    }
+
+    public com.example.cricbuzz.Model.umpire3 getUmpire3() {
+        return umpire3;
+    }
+
+    public void setUmpire3(com.example.cricbuzz.Model.umpire3 umpire3) {
+        this.umpire3 = umpire3;
+    }
+
+    public com.example.cricbuzz.Model.venue getVenue() {
+        return venue;
+    }
+
+    public void setVenue(com.example.cricbuzz.Model.venue venue) {
+        this.venue = venue;
+    }
+
+    public com.example.cricbuzz.Model.series getSeries() {
+        return series;
+    }
+
+    public void setSeries(com.example.cricbuzz.Model.series series) {
+        this.series = series;
+    }
+
+    public com.example.cricbuzz.Model.tossResults getTossResults() {
+        return tossResults;
+    }
+
+    public void setTossResults(com.example.cricbuzz.Model.tossResults tossResults) {
+        this.tossResults = tossResults;
+    }
+
+    public long getMatchStartTimestamp() {
+        return matchStartTimestamp;
+    }
+
+    public void setMatchStartTimestamp(long matchStartTimestamp) {
+        this.matchStartTimestamp = matchStartTimestamp;
+    }
+
+    public long getMatchCompleteTimestamp() {
+        return matchCompleteTimestamp;
+    }
+
+    public void setMatchCompleteTimestamp(long matchCompleteTimestamp) {
+        this.matchCompleteTimestamp = matchCompleteTimestamp;
+    }
+
+    public String getMatchDescription() {
+        return matchDescription;
+    }
+
+    public void setMatchDescription(String matchDescription) {
+        this.matchDescription = matchDescription;
+    }
+
     public int getMatchId() {
         return matchId;
     }

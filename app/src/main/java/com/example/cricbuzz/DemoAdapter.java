@@ -1,8 +1,7 @@
-package com.example.cricbuzz.Adapter;
+package com.example.cricbuzz;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,44 +19,38 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.model.LazyHeaders;
-import com.example.cricbuzz.Activity.MatchDetail_Activity;
-import com.example.cricbuzz.DemoAdapter;
-import com.example.cricbuzz.MainActivity;
+import com.example.cricbuzz.Adapter.LiveMatch_Adapter;
 import com.example.cricbuzz.Model.matches;
 import com.example.cricbuzz.Model.seriesMatches;
-import com.example.cricbuzz.Model.typeMatches;
-import com.example.cricbuzz.R;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class LiveMatch_Adapter extends RecyclerView.Adapter<LiveMatch_Adapter.ViewHolder> {
+public class DemoAdapter extends RecyclerView.Adapter<DemoAdapter.ViewHolder> {
 
     Context context;
     List<com.example.cricbuzz.Model.seriesMatches> seriesMatches ;
 
-    public LiveMatch_Adapter(Context context, List<com.example.cricbuzz.Model.seriesMatches> seriesMatches) {
+    public DemoAdapter(Context context, List<com.example.cricbuzz.Model.seriesMatches> seriesMatches) {
         this.context = context;
         this.seriesMatches = seriesMatches;
     }
 
-    public void Live_Score(List<com.example.cricbuzz.Model.seriesMatches> seriesMatches){
-        this.seriesMatches = seriesMatches;
-        notifyDataSetChanged();
-    }
-
     @NonNull
     @Override
-    public LiveMatch_Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DemoAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.live_match_layout, parent, false);
-        return new LiveMatch_Adapter.ViewHolder(view);
+        return new DemoAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LiveMatch_Adapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull DemoAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
+        /*typeMatches mydata = typeMatches[0];*/
+
+        /*matches mydata = matches.get(position);*/
 
         seriesMatches mydata = seriesMatches.get(position);
 
@@ -249,7 +242,7 @@ public class LiveMatch_Adapter extends RecyclerView.Adapter<LiveMatch_Adapter.Vi
 
                 //match status
                 if (mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getState().equalsIgnoreCase("Upcoming")
-                        || mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getState().equalsIgnoreCase("Preview")) {
+                            || mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getState().equalsIgnoreCase("Preview")) {
                     holder.txtMatchStatus.setTextColor(Color.RED);
 
                 }
@@ -466,9 +459,6 @@ public class LiveMatch_Adapter extends RecyclerView.Adapter<LiveMatch_Adapter.Vi
 
                 Toast.makeText(context, "Clickedd :: "+ mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getMatchFormat(), Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(context, MatchDetail_Activity.class);
-                intent.putExtra("match_id", mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getMatchId());
-                context.startActivity(intent);
             }
         });
     }

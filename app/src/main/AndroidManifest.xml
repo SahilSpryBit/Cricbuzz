@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cricbuzz"
         tools:targetApi="31">
+        <!-- .Activity -->
+        <activity
+            android:name=".Activity.MatchDetail_Activity"
+            android:exported="false" />
         <activity
             android:name=".Activity.ICC_Worldcup_LeagueActivity"
             android:exported="false" />
@@ -27,7 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.ICC_MenActivity"
-            android:exported="false" /> <!-- .Activity -->
+            android:exported="false" />
         <activity
             android:name=".Activity.Browse_Player_Activity"
             android:exported="false" />
