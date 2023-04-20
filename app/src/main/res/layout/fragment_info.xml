@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        tools:context=".Fragment.MatchDetails.InfoFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/info_squads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SQUADS"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:drawableRight="@drawable/ic_right_arrow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eeee">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="INFO"
+                android:textSize="18sp"
+                android:padding="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Match"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/info_match"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5th Test"
+                    android:textSize="15sp"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Services"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/info_series"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ireland tour of Srilanka, 2023"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textSize="15sp"
+                    android:text="Date"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/info_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fri, Apr 86 - Thu, Apr 64"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textSize="15sp"
+                    android:text="Time"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/info_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="10:00 AM"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textSize="15sp"
+                    android:text="Toss"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/info_toss"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Srilanka opt "
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Venue"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/info_venue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Motera International Stadium"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textSize="15sp"
+                    android:text="Umpires"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/info_umpires"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sahil,\nSadab"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textSize="15sp"
+                    android:text="3rd Umpire"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/info_3rdumpire"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Matin idariya"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Referee"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/info_referee"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sahil DOi"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eeee">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VENUE GUIDE"
+                android:textSize="18sp"
+                android:padding="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="Stadium"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/venue_stadium"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Motera International Stadium"
+                    android:textSize="15sp"
+                    android:layout_weight="1"   android:textColor="@color/black"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:text="City"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/venue_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ahmedabad"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textSize="15sp"
+                    android:text="Capacity"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/venue_capacity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="100000"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textSize="15sp"
+                    android:text="ENDS"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/venue_ends"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="City End, Fort End"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textSize="15sp"
+                    android:text="Hosts to"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:id="@+id/venue_hosts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cricket Club"
+                    android:layout_weight="1"  android:textColor="@color/black"
+                    android:textSize="15sp"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>

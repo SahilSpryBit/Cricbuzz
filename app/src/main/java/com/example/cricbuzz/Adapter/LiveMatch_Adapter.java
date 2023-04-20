@@ -467,6 +467,10 @@ public class LiveMatch_Adapter extends RecyclerView.Adapter<LiveMatch_Adapter.Vi
                 Toast.makeText(context, "Clickedd :: "+ mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getMatchFormat(), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(context, MatchDetail_Activity.class);
+                intent.putExtra("team1", mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getTeam1().getTeamSName());
+                intent.putExtra("team2", mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getTeam2().getTeamSName());
+                intent.putExtra("team1flag", mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getTeam1().getImageId());
+                intent.putExtra("team2flag", mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getTeam2().getImageId());
                 intent.putExtra("match_id", mydata.getSeriesAdWrapper().getMatches().get(0).getMatchInfo().getMatchId());
                 context.startActivity(intent);
             }

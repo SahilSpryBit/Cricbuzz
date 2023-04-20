@@ -1,11 +1,35 @@
 package com.example.cricbuzz.Model;
 
+import com.example.cricbuzz.Fragment.playerDetails;
+
+import java.util.List;
+
 public class team1 {
 
     private int teamId;
     private String teamName;
     private String teamSName;
     private int imageId;
+
+    private String shortName;
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
+    }
+
+    private List<com.example.cricbuzz.Fragment.playerDetails> playerDetails;
+
+    public List<com.example.cricbuzz.Fragment.playerDetails> getPlayerDetails() {
+        return playerDetails;
+    }
+
+    public void setPlayerDetails(List<com.example.cricbuzz.Fragment.playerDetails> playerDetails) {
+        this.playerDetails = playerDetails;
+    }
 
     public int getTeamId() {
         return teamId;
